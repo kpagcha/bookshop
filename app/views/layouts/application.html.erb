@@ -21,6 +21,7 @@
 		<div class="collapse navbar-collapse" id="navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li><%= link_to 'Catalog', catalog_path %></li>
+				<li><%= link_to 'Cart', cart_index_path %></li>
 				<li><%= link_to 'Books', books_path %></li>
 				<li><%= link_to 'Categories', categories_path %></li>
 				<li><%= link_to 'Authors', authors_path %></li>
@@ -37,7 +38,13 @@
 	</div>
 </nav>
 <div class="container">
-	<%= yield %>
+	<% if flash[:notice] %>
+		<div class="alert alert-info col-md-3"><%= flash[:notice] %></div>
+	<% end %>
+	<div class="clearfix"></div>
+	<div class="row">
+		<%= yield %>
+	</div>
 </div>
 
 </body>

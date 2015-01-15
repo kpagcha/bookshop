@@ -4,4 +4,8 @@ class Book < ActiveRecord::Base
 
 	validates :title, presence: true
 	validates :price, numericality: { greater_than: 0 }
+
+	def to_s
+		"#{title}, by #{authors.join(', ')}"
+	end
 end

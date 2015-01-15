@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'catalog' => 'catalog#index', as: :catalog
-
   root  'home#index'
 
   resources :categories
@@ -11,6 +9,17 @@ Rails.application.routes.draw do
   resources :books
 
   devise_for :admins
+
+  get 'catalog' => 'catalog#index', as: :catalog
+
+
+  get 'cart/index'
+  get 'cart/add'
+  get 'cart/remove'
+  get 'cart/clear'
+  post 'cart/add'
+  delete 'cart/remove'
+  delete 'cart/clear'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -5,6 +5,7 @@
 	  <thead>
 	    <tr>
 	      <th>Title</th>
+	      <th>Price</th>
 	      <th>Publication year</th>
 	      <th>Categories</th>
 	      <th>Authors</th>
@@ -14,7 +15,11 @@
 	  <tbody>
 	    <% @books.each do |book| %>
 	      <tr>
-	        <td><%= book.title %></td>
+	        <td>
+				<%= link_to '+', { :controller => 'cart', :action => 'add', :id => book }, :style =>'font-size: 16px;' %>
+	        	<%= book.title %>
+	       	</td>
+	       	<td><%= sprintf("%.2f €", book.price) %></td>
 	        <td><%= book.publication_year %></td>
 	        <td><%= book.categories.join(', ') %></td>
 	        <td><%= book.authors.join(', ') %></td>
