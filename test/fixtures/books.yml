@@ -2,8 +2,5 @@
 
 one:
   title: MyString
-  publication_year: 1
-
-two:
-  title: MyString
+  price: 25.99
   publication_year: 1
