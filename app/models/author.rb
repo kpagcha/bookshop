@@ -1,5 +1,5 @@
 class Author < ActiveRecord::Base
-	validates :first_name, presence: true, presence: true
+	validates :first_name, presence: true
 	validates :last_name, presence: true
 
 	# Returns the full name of the author
