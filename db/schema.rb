@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115121922) do
+ActiveRecord::Schema.define(version: 20150115131502) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150115121922) do
     t.integer  "publication_year"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "price",            limit: 24
   end
 
   create_table "books_categories", force: true do |t|

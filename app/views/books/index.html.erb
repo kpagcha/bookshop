@@ -15,6 +15,7 @@
     <% @books.each do |book| %>
       <tr>
         <td><%= book.title %></td>
+        <td><%= book.price %> €</td>
         <td><%= book.publication_year %></td>
         <td><%= truncate(book.categories.join(', '), length: 15) %></td>
         <td><%= truncate(book.authors.join(', '), length: 15) %></td>

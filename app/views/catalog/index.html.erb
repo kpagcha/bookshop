@@ -1,23 +1,27 @@
 <h1>Books catalog</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Publication year</th>
-      <th>Categories</th>
-      <th>Authors</th>
-    </tr>
-  </thead>
+<% if Book.count > 0 %>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Title</th>
+	      <th>Publication year</th>
+	      <th>Categories</th>
+	      <th>Authors</th>
+	    </tr>
+	  </thead>
 
-  <tbody>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= book.title %></td>
-        <td><%= book.publication_year %></td>
-        <td><%= book.categories.join(', ') %></td>
-        <td><%= book.authors.join(', ') %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	  <tbody>
+	    <% @books.each do |book| %>
+	      <tr>
+	        <td><%= book.title %></td>
+	        <td><%= book.publication_year %></td>
+	        <td><%= book.categories.join(', ') %></td>
+	        <td><%= book.authors.join(', ') %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+<% else %>
+	<p>No books founds yet.</p>
+<% end %>

@@ -25,6 +25,14 @@
 				<li><%= link_to 'Categories', categories_path %></li>
 				<li><%= link_to 'Authors', authors_path %></li>
 			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<% if admin_signed_in? %>
+					<li><%= link_to "Logout (#{current_admin.email})", destroy_admin_session_path, method: :delete %></a></li>
+				<% else %>
+					<li><%= link_to 'Login', new_admin_session_path %></li>
+					<li><%= link_to 'Signup', new_admin_registration_path %></li>
+				<% end %>
+			</ul>
 		</div>
 	</div>
 </nav>
