@@ -4,10 +4,12 @@ class Cart < ActiveRecord::Base
 
   accepts_nested_attributes_for :cart_items
 
+  # Return the sum of the price of the shopping cart
   def total
   	cart_items.inject(0) { |sum, item| item.price * item.amount + sum }
   end
 
+  # Adds a book to the shopping cart, in a particular amount
   def add(book_id, amount = 1)
     items = cart_items.find_by_book_id book_id
     puts items
@@ -21,6 +23,7 @@ class Cart < ActiveRecord::Base
     ci
   end
 
+  # Removes a book from the shopping cart, in a particular amount
   def remove(book_id, amount = 1)
     ci = cart_items.find_by_book_id(book_id)
     if ci.amount - amount > 0

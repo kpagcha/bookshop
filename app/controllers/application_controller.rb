@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # Sets up the shopping cart object in the session, or gets it, if exists
   def initialize_cart
     if session[:cart_id]
       @cart = Cart.find session[:cart_id]
