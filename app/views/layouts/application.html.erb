@@ -38,7 +38,7 @@
 	</div>
 </nav>
 <div class="container">
-	<% if flash[:notice] %>
+	<% if flash[:notice] && !['categories', 'authors', 'books'].include?(controller_name) %>
 		<div class="alert alert-info col-md-3"><%= flash[:notice] %></div>
 	<% end %>
 	<div class="clearfix"></div>

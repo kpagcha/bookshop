@@ -3,7 +3,9 @@ class AdminController < ApplicationController
 
 	private
 	def authentication_required
-		flash[:notice] = 'This page is restricted for admins.'
+		if !admin_signed_in?
+			flash[:notice] = 'This page is restricted for admins.'
+		end
 		authenticate_admin!
 	end
 end
