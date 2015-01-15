@@ -10,11 +10,12 @@ class Cart < ActiveRecord::Base
 
   def add(book_id, amount = 1)
     items = cart_items.find_by_book_id book_id
+    puts items
     book = Book.find book_id
-    if items.nil? || items.size < 1
+    if items.nil?
       ci = cart_items.create(:book_id => book_id, :amount => amount, :price => book.price)
     else
-      ci = items.first
+      ci = items
       ci.update_attribute(:amount, ci.amount + amount)
     end
     ci

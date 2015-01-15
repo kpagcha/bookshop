@@ -1,4 +1,4 @@
-class AuthorsController < ApplicationController
+class AuthorsController < AdminController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_admin!
 
